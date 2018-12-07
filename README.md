@@ -1,11 +1,9 @@
 # DHT-crawler
 
-This project was created as part of bacherol thesis. DHT-crawler is supposed to monitor
+This project was created as part of the TARZAN project and the bacherol thesis of Martin Vaško.
+DHT-crawler is supposed to monitor
 BitTorrent traffic with use of DHT tables. Tool has variety of usage and plenty
 of space to expand.
-
-## Build:
-[![Build Status](https://travis-ci.com/Matovidlo/DHT-crawler.svg?token=fq9GsJS6Do3MQ8iWuHo3&branch=master)](https://travis-ci.com/Matovidlo/DHT-crawler)
 
 ### Getting Started
 To run this program you are supposed to install prerequisites. When you do not want to
@@ -26,16 +24,22 @@ pip3 install bencoder bencoder.pyx
 ### Outputs
 
 Program has 3 types of output.
-1. db_format, which can be send over client to server.
-2. print_as_country format, which have translate IP-addresses to geolocation.
-3. without formatting, which has every 5 seconds tells you about current status of crawling.
+1. print IP addresses of detected peers.
+2. db_format, which creates a JSON object carrying the detected peers, it can be send to server.
+3. print_as_country format, which have translate IP-addresses to geolocation.
+4. without formatting, which has every 5 seconds tells you about current status of crawling.
+
+For example, to search for Debian netinst ISO torrent peers use the following command:
+
+./dht\_crawler/exec.py --file debian-9.6.0-amd64-netinst.iso.torrent
+
+If you know the info hash, you can also use the following command:
+
+./dht\_crawler/exec.py --hash f71e7defc014563fc7d8ffe26f759b2518c30f34
 
 ### Tests
 
 There are unit tests which are supposed to rely on application, that is still runnable.
-Integration tests, which are supposed to give results which are transformable with
-help of results/get_results.sh script. Automatically transform those results with help
-of pgfplots and tex to nice looking graphs of result output.
 
 ### Contribution
 
