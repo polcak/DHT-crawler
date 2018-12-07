@@ -32,20 +32,9 @@ def kill_sender_reciever(thread1, thread2=None):
     '''
     identification = thread1.ident
     try:
-        signal.pthread_kill(identification, 2)
+        signal.pthread_kill(identification, 2) # SIGINT Interrupt from keyboard
     except ProcessLookupError:
         pass
-
-    # take some time to kill reciever thread
-    if thread2 is None:
-        return
-
-    identification = thread2.ident
-    try:
-        signal.pthread_kill(identification, 2)
-    except ProcessLookupError:
-        pass
-
 
 def init_socket(port):
     '''
