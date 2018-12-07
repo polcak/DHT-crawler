@@ -40,6 +40,8 @@ def argument_parser():
     parser.add_argument('--fifo', action='store_true', dest="queue_type",
                         help='Change shared queue between processes \
                         from default lifo to fifo')
+    parser.add_argument('--status', action='store_true', default = False,
+            help='When running, print periodically status information.')
     # settings for dht
 
     parser.add_argument('--counter', type=int, dest='counter', action='store',

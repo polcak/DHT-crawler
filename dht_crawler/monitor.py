@@ -103,6 +103,7 @@ class Monitor:
         if arguments.duration is not None:
             # Duration of crawl
             self.duration = arguments.duration
+        self.print_status = arguments.status
         # local variables for class
 
         self.sock = self.torrent.query_socket
@@ -369,10 +370,11 @@ class Monitor:
         bernouli = self.respondent*100.0 / max(1, len(self.info_pool))
         if bernouli > 100:
             bernouli = 100.00
-        print("[NodeSet]:%i\t\t[PeerSet]:%i\t\t[Bernoulli process]:\
-            %.2f%%\t\t[Queue]:%i\t\t" %
-              (len(self.info_pool), len(self.peers_pool),
-               bernouli, self.torrent.nodes.qsize()))
+        if self.print_status:
+            print("[NodeSet]:%i\t\t[PeerSet]:%i\t\t[Bernoulli process]:\
+                %.2f%%\t\t[Queue]:%i\t\t" %
+                  (len(self.info_pool), len(self.peers_pool),
+                   bernouli, self.torrent.nodes.qsize()))
 
     def diverge_in_location(self, nodes):
         '''
