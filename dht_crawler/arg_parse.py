@@ -27,7 +27,7 @@ def argument_parser():
     parser.add_argument('--bind_port', type=int, dest='bind_port', action='store',
                         help='Specify port to which should be connection \
                         binded.')
-    parser.add_argument('--duration', type=int, dest='duration',
+    parser.add_argument('--duration', type=int, dest='duration', default=60,
                         action='store', help='Set for how long should program \
                         monitor continuously.')
     parser.add_argument('--print_as_country', action='store_true',
