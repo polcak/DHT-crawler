@@ -147,3 +147,6 @@ class ProcessOutput():
                 pass # FIXME self.monitor.torrent_name can be empty
             print("}")
             print("}")
+        else:
+            for peer in self.monitor.peers_pool.values():
+                print(peer[1][1])

@@ -344,11 +344,10 @@ class Monitor:
                 self.vprint("\nClearing threads, wait a second")
                 break
         self.query_for_connectivity()
-        if self.db_format or self.output.print_country:
+        if self.output.print_country:
             self.output.get_geolocations()
-            self.output.print_chosen_output()
-        if not self.db_format:
-            self.info()
+        self.output.print_chosen_output()
+        if self.print_status:
             print("Time spend not recieving any UDP response: {}"
                   .format(self.no_recieve))
 
